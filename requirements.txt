@@ -1,25 +1,21 @@
 fastapi
-uvicorn[standard]
+uvicorn
+pydantic
+
+pandas
+joblib
 
 langchain
 langchain-community
-langchain-huggingface
+langchain-classic
 langchain-groq
 
-pdfplumber
-faiss-cpu
-
+langchain-huggingface
 sentence-transformers
-transformers
-torch
+faiss-cpu
 
 scikit-learn==1.6.1
 xgboost
-lightgbm
-catboost
 
-joblib
-pandas
-
-python-multipart
 python-dotenv
+python-multipart
