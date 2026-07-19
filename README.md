@@ -148,3 +148,9 @@ The FastAPI backend exposes the following primary RESTful endpoints:
 ## Conclusion
 
 LoanSense AI demonstrates a production-ready paradigm for financial automation. By bridging the gap between predictive accuracy and document-backed compliance, it delivers transparent, explainable, and accessible financial assistance via an intuitive telephone interface.
+
+
+## License
+
+This project is intended for educational, research, and demonstration
+purposes.
