@@ -1,3 +1,4 @@
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/251e05ef-f2b8-4c48-9a10-cc87c2910b7e" />
 # LoanSense AI: Intelligent AI-Powered Loan Assessment & Voice Assistant
 
 An end-to-end Artificial Intelligence platform that combines Machine Learning, Retrieval-Augmented Generation (RAG), Large Language Models (LLMs), Voice AI, and Telephony to automate loan eligibility assessment, risk analysis, and intelligent customer assistance.
