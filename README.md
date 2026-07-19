@@ -1,185 +1,145 @@
-LoanSense AI: Intelligent Voice-Driven Loan Assessment & Policy Assistant
-An AI-powered voice-first loan assistant that provides instant loan eligibility insights using Machine Learning, Retrieval-Augmented Generation (RAG), and Large Language Models. Users simply call a US phone number and interact naturally to receive personalized loan guidance in real time.
+# LoanSense AI
 
-Live Demo
-Call the AI Loan Assistant (US Number)
+An AI-powered intelligent loan assessment platform that combines Machine
+Learning, Retrieval-Augmented Generation (RAG), Large Language Models
+(LLMs), Voice AI, and Telephony to automate loan eligibility assessment,
+financial risk analysis, and customer assistance.
 
-+1 220-226-7592
+## Overview
 
-Ask about loan eligibility, estimated loan amount, banking policies, documentation requirements, or repayment guidance through a natural voice conversation.
+LoanSense AI provides an end-to-end solution for intelligent loan
+processing by integrating predictive analytics with conversational AI.
+The platform evaluates an applicant's financial profile, estimates loan
+default probability, generates an interpretable risk score, retrieves
+relevant financial policies, and delivers personalized recommendations
+through a natural voice conversation.
 
-Problem Statement
-Traditional loan eligibility assessment is often slow and requires multiple manual verification steps. Customers typically need to:
+The system is designed to improve transparency, reduce manual effort,
+and provide explainable AI-driven loan recommendations.
 
-Visit a bank branch
-Submit multiple documents
-Wait 2–3 working days
-Undergo manual verification
-Receive no immediate estimate of their loan eligibility
+------------------------------------------------------------------------
 
-LoanSense AI simplifies this process by providing an intelligent conversational experience that delivers instant, explainable loan assessments.
+## Key Features
 
-Features
-Voice-driven AI assistant
-Machine learning-based loan risk prediction
-Retrieval-Augmented Generation (RAG)
-Policy-backed loan guidance
-Natural language conversations
-Real-time responses
-Secure API architecture
-Cloud deployment
+-   AI-powered loan default prediction using an ensemble Machine
+    Learning model
+-   Financial risk score generation
+-   Retrieval-Augmented Generation (RAG) for policy-aware responses
+-   Explainable recommendations using Large Language Models
+-   Voice-based loan assessment through Vapi AI
+-   Telephony integration using Twilio
+-   FastAPI REST backend
+-   Dockerized deployment
+-   Cloud deployment on Hugging Face Spaces
 
-Architecture
-                 User
-                   │
-                   ▼
-           Phone Call (Vapi AI)
-                   │
-                   ▼
-            Speech-to-Text
-                   │
-                   ▼
-             FastAPI Backend
-          ┌────────┴─────────┐
-          │                  │
-          ▼                  ▼
-    ML Risk Model        RAG Pipeline
-          │                  │
-          ▼                  ▼
-      Risk Score      Policy Retrieval
-          └────────┬─────────┘
-                   ▼
-             Groq Llama 3.3
-                   │
-                   ▼
-          AI Loan Recommendation
-                   │
-                   ▼
-          Text-to-Speech (Vapi)
-                   │
-                   ▼
-                 Caller
-                 
-Machine Learning
-LoanSense AI uses an ensemble Machine Learning model to estimate an applicant's loan risk.
+------------------------------------------------------------------------
 
-Input Parameters
-Annual Income
-Loan Amount
-Credit Score
-Employment Years
-Existing Loans
-Loan Term
-Home Ownership
-Marital Status
-Number of Dependents
-Education Level
-Output
-Risk Score
-Prediction Confidence
-Loan Eligibility Estimate
+## System Architecture
 
-Retrieval-Augmented Generation (RAG)
-The assistant retrieves relevant banking policies from official documents before generating responses.
-
-Bank Policy PDFs
-        │
-        ▼
-Text Extraction
-        │
-        ▼
-Chunking
-        │
-        ▼
-Hugging Face Embeddings
-        │
-        ▼
-FAISS Vector Database
-        │
-        ▼
-Relevant Context Retrieval
-        │
-        ▼
-Groq Llama 3.3
-        │
-        ▼
-Natural Language Response
-
-Voice AI Workflow
-Phone Call
-     │
-     ▼
-Speech Recognition
-     │
-     ▼
+``` text
+Applicant
+      │
+      ▼
+Voice Call (Twilio)
+      │
+      ▼
+Vapi AI Voice Assistant
+      │
+      ▼
 FastAPI Backend
-     │
-     ▼
-Machine Learning Prediction
-     │
-     ▼
-Policy Retrieval
-     │
-     ▼
-LLM Response
-     │
-     ▼
-Speech Synthesis
+      │
+      ├───────────────► Machine Learning Model
+      │                     │
+      │                     ▼
+      │               Risk Score
+      │
+      ├───────────────► RAG Pipeline
+      │                     │
+      │                     ▼
+      │               FAISS Vector Store
+      │                     │
+      │                     ▼
+      │           Financial Policy Retrieval
+      │
+      ▼
+Groq LLM
+      │
+      ▼
+Personalized Loan Recommendation
+      │
+      ▼
+Voice Response to Applicant
+```
 
-Tech Stack
-Artificial Intelligence & Machine Learning
-Python
-Scikit-learn
-XGBoost
-LightGBM
-CatBoost
-LLM & RAG
-LangChain
-FAISS
-Hugging Face Embeddings
-Groq API
-Llama 3.3
-Backend
-FastAPI
-Uvicorn
-Pydantic
-Voice
-Vapi AI
-Twilio
-Deployment
-Docker
-Hugging Face Spaces
+## Technology Stack
+
+  Category               Technologies
+  ---------------------- ------------------------------------
+  Programming Language   Python
+  Machine Learning       Scikit-learn, XGBoost
+  AI Framework           LangChain
+  Vector Database        FAISS
+  Embedding Model        Hugging Face Sentence Transformers
+  Large Language Model   Groq (Llama 3.3 70B Versatile)
+  Backend                FastAPI
+  Voice AI               Vapi
+  Telephony              Twilio
+  Data Processing        Pandas
+  Model Serialization    Joblib
+  Deployment             Docker, Hugging Face Spaces
+
+## Workflow
+
+1.  Applicant initiates a voice call.
+2.  Vapi AI collects applicant information.
+3.  FastAPI validates the data.
+4.  The ML model predicts loan default probability.
+5.  A financial Risk Score is generated.
+6.  The RAG pipeline retrieves relevant financial policies.
+7.  The retrieved context and applicant information are sent to the Groq
+    LLM.
+8.  The LLM generates a personalized recommendation.
+9.  Vapi delivers the response to the applicant.
+
+## Machine Learning
+
+**Model Performance**
+
+-   Accuracy: **89%**
+-   ROC-AUC Score: **0.757**
+
+Outputs: - Default Probability - Risk Score - Prediction Confidence
+
+## Retrieval-Augmented Generation (RAG)
+
+Pipeline: - PDF Processing - Text Chunking - Embedding Generation -
+FAISS Vector Database - Semantic Search - Context Retrieval - Prompt
+Construction - LLM Response Generation
+
+## Backend
+
+Responsibilities: - Request validation - Loan risk prediction - Risk
+score generation - RAG retrieval - Prompt generation - LLM
+communication - API response generation
+
+## Deployment
+
+-   Docker
+-   Hugging Face Spaces
+-   Secure environment variables
+-   Scalable cloud deployment
 
 
-Workflow
-User calls the AI assistant.
-Speech is converted into text.
-Applicant details are collected.
-The Machine Learning model predicts the loan risk score.
-Relevant banking policies are retrieved using RAG.
-Llama 3.3 generates an explainable response.
-The response is converted back to speech.
-The user receives instant loan guidance.
+## Future Improvements
 
-API Endpoint
-POST
-/loan-assessment
+-   OCR-based document verification
+-   Credit bureau API integration
+-   Fraud detection
+-   Multi-language support
+-   Loan comparison engine
+-   Financial planning recommendations
 
-Sample Response
-{
-  "risk_score": 715,
-  "confidence": 0.92,
-  "answer": "Based on your financial profile, you are likely eligible for the requested loan amount."
-}
+## License
 
-Future Enhancements
-Multi-bank policy support
-Multilingual voice interaction
-Real-time credit score integration
-Aadhaar and PAN verification
-OCR-based document processing
-Personalized EMI optimization
-Loan comparison across multiple banks
-
-License
-This project is intended for educational, research, and hackathon purposes.
+This project is intended for educational, research, and demonstration
+purposes.
